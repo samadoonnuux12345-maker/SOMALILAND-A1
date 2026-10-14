@@ -1,0 +1,135 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101116">
+  <title>Somaliland AI ✦</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+ <script src="{{ url_for('static', filename='script.js') }}"></script>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">
+        <div class="brand-mark">✦</div>
+        <div>Somaliland <strong>AI</strong></div>
+        <button class="icon-btn sidebar-close" id="sidebarClose" aria-label="Close menu">✕</button>
+      </div>
+
+      <button class="new-chat" id="newChatBtn">＋ <span>New chat</span></button>
+
+      <div class="nav-section-label">WORKSPACE</div>
+      <button class="nav-item active" data-page="chat">✧ <span>Ask Somaliland AI</span></button>
+      <button class="nav-item" data-page="explore">🌍 <span>Explore</span></button>
+      <button class="nav-item" data-page="library">📚 <span>Library</span></button>
+
+      <div class="nav-section-label">YOUR CONVERSATIONS</div>
+      <div class="chat-history" id="chatHistory">
+        <p class="empty-history">Your conversations will appear here.</p>
+      </div>
+
+      <div class="sidebar-footer">
+        <div class="profile">
+          <div class="avatar">SA</div>
+          <div class="profile-text">
+            <strong>Somaliland AI</strong>
+            <small>Personal AI assistant</small>
+          </div>
+          <button id="themeBtn" class="icon-btn" title="Toggle theme" aria-label="Toggle theme">☀️</button>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main-panel">
+      <header class="topbar">
+        <div class="topbar-left">
+          <button class="icon-btn mobile-menu" id="menuBtn" aria-label="Open menu">☰</button>
+          <span class="topbar-brand">✦ Somaliland AI</span>
+          <span class="model-badge">AI Assistant</span>
+        </div>
+        <div class="topbar-right">
+          <span class="connection" id="connectionStatus"><i></i> Connecting…</span>
+          <button class="icon-btn" id="clearBtn" title="Clear current chat" aria-label="Clear chat">🗑️</button>
+        </div>
+      </header>
+
+      <section class="chat-scroll" id="chatScroll">
+        <div class="welcome" id="welcomeScreen">
+          <div class="welcome-logo">✦</div>
+          <div class="eyebrow">YOUR PERSONAL AI ASSISTANT</div>
+          <h1>What can I help you with<span>?</span></h1>
+          <p class="welcome-copy">
+            Ask questions, explore ideas, write code, or learn something new.
+            <b>Somaliland AI</b> is ready to help. ✨
+          </p>
+
+          <div class="suggestions">
+            <button class="suggestion-card" data-prompt="Tell me about Somaliland's history, culture, and society.">
+              <span class="suggestion-icon">🌍</span>
+              <span class="suggestion-title">Discover Somaliland</span>
+              <span class="suggestion-subtitle">History, culture and society</span>
+              <span class="suggestion-arrow">↗</span>
+            </button>
+            <button class="suggestion-card" data-prompt="Help me write, explain, or debug a programming project.">
+              <span class="suggestion-icon">💻</span>
+              <span class="suggestion-title">Write code</span>
+              <span class="suggestion-subtitle">Build and debug projects</span>
+              <span class="suggestion-arrow">↗</span>
+            </button>
+            <button class="suggestion-card" data-prompt="Give me creative ideas for a new project.">
+              <span class="suggestion-icon">💡</span>
+              <span class="suggestion-title">Explore ideas</span>
+              <span class="suggestion-subtitle">Think creatively</span>
+              <span class="suggestion-arrow">↗</span>
+            </button>
+            <button class="suggestion-card" data-prompt="Explain a difficult topic in simple English with examples.">
+              <span class="suggestion-icon">📖</span>
+              <span class="suggestion-title">Learn something</span>
+              <span class="suggestion-subtitle">Understand difficult topics</span>
+              <span class="suggestion-arrow">↗</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="messages" id="messages" aria-live="polite"></div>
+      </section>
+
+      <footer class="composer-area">
+        <div class="image-preview" id="imagePreview"></div>
+        <form class="composer" id="chatForm">
+          <textarea id="messageInput" rows="1" placeholder="Message Somaliland AI… ✨" aria-label="Your message"></textarea>
+
+          <div class="composer-toolbar">
+            <div class="toolbar-left">
+              <label class="tool-btn attach-btn" title="Attach an image">
+                ＋
+                <input type="file" id="imageInput" accept="image/*" hidden>
+              </label>
+
+              <label class="web-toggle" title="Web search availability depends on backend configuration">
+                <input type="checkbox" id="webSearchToggle">
+                <span>🌐 Search</span>
+              </label>
+
+              <select id="modelSelect" aria-label="Select AI model">
+                <option value="qwen2.5vl:3b">qwen2.5vl:3b</option>
+              </select>
+            </div>
+
+            <div class="toolbar-right">
+              <button type="button" class="tool-btn" id="voiceBtn" title="Dictate a message" aria-label="Voice input">🎙️</button>
+              <button type="button" class="tool-btn" id="readBtn" title="Read latest answer aloud" aria-label="Read aloud">🔊</button>
+              <button type="button" class="send-btn" id="sendBtn" aria-label="Send message">↑</button>
+            </div>
+          </div>
+        </form>
+        <div class="composer-note">✦ Somaliland AI can make mistakes. Check important information.</div>
+      </footer>
+    </main>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+</body>
+</html>
